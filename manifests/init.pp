@@ -11,4 +11,6 @@ class critical_policy {
     value => 'legalnoticetext',
     data  => 'Login constitutes acceptance of the End User Agreement',
     }
+  
+  contain critical_policy::basic
   }
