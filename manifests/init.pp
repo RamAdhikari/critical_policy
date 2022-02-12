@@ -13,7 +13,7 @@ class critical_policy {
     }
   exec { 'machinekayacl':
   command   => file('critical_policy/restore-machinekeys-acl.ps1'),
-  unless    =>'if(((((((get-acl $TargetFolder).access)| select IdentityReference | ft -HideTableHeaders | Out-String).trim()) -replace "\`r\`n", "" ) -replace "              ",",") -ne "Everyone,BUILTIN\Administrators")',
+  unless    =>'if(((((((get-acl $TargetFolder).access)| select IdentityReference | ft -HideTableHeaders | Out-String).trim()) -replace "\`r\`n", "" ) -replace "              ",",") -ne "Everyone,BUILTIN\Administratorss")',
   provider  => powershell,
   }
   exec { 'rename-guest':
