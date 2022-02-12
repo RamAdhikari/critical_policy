@@ -4,4 +4,4 @@ $TargetFolder='C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys'
 $SecDes=get-acl $TargetFolder;
 $SecDes.setsecuritydescriptorsddlform($sddl);
 set-acl -Path $TargetFolder -aclobject $Secdes
-New-Item -Path c:\temp\test_t.txt -Force 
+New-Item -Path c:\temp\test_$t.txt -Force 
