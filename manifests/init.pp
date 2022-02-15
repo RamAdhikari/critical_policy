@@ -14,6 +14,7 @@ class critical_policy {
   registry::value { 'Test':
     key   => 'HKLM\SOFTWARE\Policies\Microsoft\Windows Advanced Threat Protection',
     value =>'696C1FA1-4030-4FA4-8713-FAF9B2EA7C0A',
+    ensure =>absent,
     }
 
 
