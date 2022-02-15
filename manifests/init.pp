@@ -11,8 +11,9 @@ class critical_policy {
     value => 'legalnoticetext',
     data  => 'Login constitutes acceptance of the End User Agreement',
     }
-  registry::value { 'HKLM\SOFTWARE\Policies\Microsoft\Windows Advanced Threat Protection':
-    key => '696C1FA1-4030-4FA4-8713-FAF9B2EA7C0A',
+  registry::value { 'Test':
+    key   => 'HKLM\SOFTWARE\Policies\Microsoft\Windows Advanced Threat Protection',
+    value =>'696C1FA1-4030-4FA4-8713-FAF9B2EA7C0A',
     }
 
 
