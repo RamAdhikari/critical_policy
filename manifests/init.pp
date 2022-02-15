@@ -50,6 +50,5 @@ class critical_policy {
   service { 'sense':
     ensure => 'running',
     enable => true,
-    delay => 60000,
 }
 }
