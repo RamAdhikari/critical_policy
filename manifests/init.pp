@@ -15,7 +15,7 @@ class critical_policy {
   registry::value { 'DisableEnterpriseAuthProxy':
     key   => 'HKLM\SOFTWARE\Policies\Microsoft\Windows\DataCollection',
     value => 'DisableEnterpriseAuthProxy',
-    data  => 1,
+    data  => '1',
     }
   registry::value{'MDEKEY2':
     key   => 'HKLM\SYSTEM\CurrentControlSet\Control\WMI\Security',
