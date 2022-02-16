@@ -21,6 +21,7 @@ registry::value { 'ForceDefenderPassiveMode':
     key   => 'HKLM\SOFTWARE\Policies\Microsoft\Windows Advanced Threat Protection',
     value => 'ForceDefenderPassiveMode',
     data  => '1',
+    type  => dword,
     }
 
   registry::value{'MDEKEY2':
