@@ -16,6 +16,7 @@ class critical_policy {
     key   => 'HKLM\SOFTWARE\Policies\Microsoft\Windows\DataCollection',
     value => 'DisableEnterpriseAuthProxy',
     data  => '1',
+    type  => dword,
     }
 registry::value { 'ForceDefenderPassiveMode':
     key   => 'HKLM\SOFTWARE\Policies\Microsoft\Windows Advanced Threat Protection',
