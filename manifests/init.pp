@@ -56,6 +56,7 @@ registry::value { 'ForceDefenderPassiveMode':
   }
   service { 'sense':
     ensure => 'running',
-    enable => registry::value ['MDEKEY'],
+    enable => true,
+    require => registry::value['MDEKEY'],
 }
 }
