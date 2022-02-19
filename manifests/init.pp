@@ -1,7 +1,6 @@
 class critical_policy {
 
-  registry_value { 'Legal notice caption':
-    key   => 'HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\System',
+  registry_value { 'HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\System':
     value => 'legalnoticecaption',
     data  => 'Legal Notice',
     }
