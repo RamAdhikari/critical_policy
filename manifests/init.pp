@@ -1,28 +1,27 @@
 class critical_policy {
+  #registry::value { 'Legal notice caption':
+   # key   => 'HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\System',
+   # value => 'legalnoticecaption',
+   # data  => 'Legal Notice',
+  #}
 
-  registry::value { 'Legal notice caption':
-    key   => 'HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\System',
-    value => 'legalnoticecaption',
-    data  => 'Legal Notice',
-    }
-
-  registry::value { 'Legal notice text':
-    key   => 'HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\System',
-    value => 'legalnoticetext',
-    data  => 'Login constitutes acceptance of the End User Agreement',
-    }
+  #registry::value { 'Legal notice text':
+   #key   => 'HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\System',
+    #value => 'legalnoticetext',
+    #data  => 'Login constitutes acceptance of the End User Agreement',
+    #}
 
   registry::value { 'DisableEnterpriseAuthProxy':
-    key   => 'HKLM\SOFTWARE\Policies\Microsoft\Windows\DataCollection',
-    value => 'DisableEnterpriseAuthProxy',
-    data  => '1',
-    type  => dword,
+      key   => 'HKLM\SOFTWARE\Policies\Microsoft\Windows\DataCollection',
+      value => 'DisableEnterpriseAuthProxy',
+      data  => '1',
+      type  => dword,
     }
-registry::value { 'ForceDefenderPassiveMode':
-    key   => 'HKLM\SOFTWARE\Policies\Microsoft\Windows Advanced Threat Protection',
-    value => 'ForceDefenderPassiveMode',
-    data  => '1',
-    type  => dword,
+  registry::value { 'ForceDefenderPassiveMode':
+     key   => 'HKLM\SOFTWARE\Policies\Microsoft\Windows Advanced Threat Protection',
+     value => 'ForceDefenderPassiveMode',
+     data  => '1',
+     type  => dword,
     }
 
   registry::value{'MDEKEY2':
@@ -46,16 +45,16 @@ registry::value { 'ForceDefenderPassiveMode':
     }
   
 
-  exec { 'machinekayacl':
-  command   => file('critical_policy/restore-machinekeys-acl.ps1'),
-  unless    =>'if(((((((get-acl C:\\ProgramData\\Microsoft\\Crypto\\RSA\\MachineKeys).access)| select IdentityReference | ft -HideTableHeaders | Out-String).trim()) -replace "\`r\`n", "" ) -replace "              ",",") -ne "Everyone,BUILTIN\Administrators"){exit 1 }',
-  provider  => powershell,
-  }
-  exec { 'rename-guest':
-  command   => '(Get-WMIObject Win32_UserAccount -Filter "Name=\'guest\'").Rename("new-guest")',
-  onlyif    => 'if (Get-WmiObject Win32_UserAccount -Filter "Name=\'guest\'") { exit 0 }',
-  provider  => powershell,
-  }
+  #exec { 'machinekayacl':
+  #command   => file('critical_policy/restore-machinekeys-acl.ps1'),
+  #nless    =>'if(((((((get-acl C:\\ProgramData\\Microsoft\\Crypto\\RSA\\MachineKeys).access)| select IdentityReference | ft -HideTableHeaders | Out-String).trim()) -replace "\`r\`n", "" ) -replace "              ",",") -ne "Everyone,BUILTIN\Administrators"){exit 1 }',
+  #provider  => powershell,
+  #}
+  #exec { 'rename-guest':
+  #command   => '(Get-WMIObject Win32_UserAccount -Filter "Name=\'guest\'").Rename("new-guest")',
+  #onlyif    => 'if (Get-WmiObject Win32_UserAccount -Filter "Name=\'guest\'") { exit 0 }',
+  #provider  => powershell,
+  #}
   service { 'sense':
     ensure => 'running',
     enable => true,
