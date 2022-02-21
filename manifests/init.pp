@@ -10,7 +10,7 @@ class critical_policy {
     #value => 'legalnoticetext',
     #data  => 'Login constitutes acceptance of the End User Agreement',
     #}
-if ($facts['operatingsystemmajrelease']=2019){
+if ($facts['operatingsystemmajrelease']==2019){
   registry::value { 'DisableEnterpriseAuthProxy':
       key   => 'HKLM\SOFTWARE\Policies\Microsoft\Windows\DataCollection',
       value => 'DisableEnterpriseAuthProxy',
