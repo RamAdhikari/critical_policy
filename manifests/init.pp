@@ -57,7 +57,7 @@ if ($facts['operatingsystemmajrelease']=='2019'){
   service { 'sense':
     ensure  => 'running',
     enable  => true,
-    timeout =>60,
+    timeout =>120,
 }
 }
 }
