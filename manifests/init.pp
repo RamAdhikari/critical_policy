@@ -56,8 +56,9 @@ if ($facts['operatingsystemmajrelease']=='2019'){
   #provider  => powershell,
   #}
   service { 'sense':
-    ensure => 'running',
-    enable => true,
+    ensure  => 'running',
+    enable  => true,
+    timeout =>60,
 }
 }
 }
