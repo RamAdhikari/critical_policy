@@ -14,6 +14,7 @@ if ($facts['operatingsystemmajrelease']=='2019'){
 
   registry_value { 'HKLM\SOFTWARE\Policies\Microsoft\Windows Advanced Threat Protection\696C1FA1-4030-4FA4-8713-FAF9B2EA7C0A':
     ensure => absent,
+    before => Registry_Key['HKLM\SOFTWARE\Policies\Microsoft\Windows Advanced Threat Protection\OnboardingInfo'],
     }
   registry_value { 'HKLM\SOFTWARE\Policies\Microsoft\Windows\DataCollection\DisableEnterpriseAuthProxy':
     ensure => present,
